@@ -10,9 +10,20 @@ if ! claude plugin marketplace list 2>/dev/null | grep -q claude-plugins-officia
   claude plugin marketplace add anthropics/claude-plugins-official >/dev/null
 fi
 
+if ! claude plugin marketplace list 2>/dev/null | grep -q ponytail; then
+  claude plugin marketplace add dietrichgebert/ponytail >/dev/null
+fi
+
 PLUGINS=(
   superpowers@claude-plugins-official
   frontend-design@claude-plugins-official
+  code-simplifier@claude-plugins-official
+  claude-md-management@claude-plugins-official
+  pr-review-toolkit@claude-plugins-official
+  security-guidance@claude-plugins-official
+  typescript-lsp@claude-plugins-official
+  code-review@claude-plugins-official
+  ponytail@ponytail
 )
 
 installed="$(claude plugin list 2>/dev/null || true)"
